@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surendar | Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #222;
+            min-height: 100vh;
+            /* Formal background image with overlay */
+            background: 
+                linear-gradient(rgba(34,36,36,0.7), rgba(34,36,36,0.7)),
+                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        nav {
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(34,36,36,0.95);
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 18px;
+            position: relative;
+        }
+        nav ul button {
+            background: linear-gradient(90deg, #ffb347, #ffcc33);
+            border: none;
+            border-radius: 30px;
+            color: #222;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 12px 32px;
+            margin: 18px 0;
+            box-shadow: 0 2px 12px rgba(255, 179, 71, 0.15);
+            cursor: pointer;
+            transition: 
+                background 0.3s,
+                color 0.3s,
+                transform 0.25s cubic-bezier(.68,-0.55,.27,1.55),
+                box-shadow 0.3s;
+            perspective: 600px;
+        }
+        nav ul button:hover, nav ul button:focus {
+            background: #fffbe6;
+            color: #ffb347;
+            transform: scale(1.12) rotateY(12deg);
+            box-shadow: 0 0 24px 6px #ffe066, 0 4px 18px 0 rgba(0,0,0,0.12);
+        }
+        nav ul button a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+        }
+       .maincontent{
+        margin-top:100px;
+       }
+        
+        .main-content {
+            padding: 20px 4vw;
+            max-width: 1200px;
+            margin-top: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tittle {
+            text-align: center;
+            font-size: 2.2em;
+            color: #0ee74b;
+            margin-top: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            animation: slideDown 1s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @media( max-width: 600px) {
+            nav ul {
+                scale: 0.75;
+            }
+            
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-60px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        section {
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px;
+            margin: 40px auto;
+            padding: 36px 32px;
+            max-width: 700px;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+            animation: fadeInUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        section:hover {
+            box-shadow: 0 16px 48px 0 rgba(72, 82, 223, 0.28);
+            transform: translateY(-8px) scale(1.02) rotateX(3deg);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(60px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        h1, h2, h3 {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(90deg, #ffb347, #ffcc33, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.15em;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 18px;
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        ul.skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul.skills-list li {
+            background: linear-gradient(90deg, #ffb347, #ffcc33);
+            color: #222;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 10px 22px;
+            margin: 6px 0;
+            box-shadow: 0 2px 12px rgba(255, 179, 71, 0.10);
+            transition: transform 0.2s, box-shadow 0.2s;
+            transform: perspective(400px) rotateY(0deg);
+        }
+        ul.skills-list li:hover {
+            transform: scale(1.08) rotateY(10deg);
+            box-shadow: 0 0 18px 6px #ffe066, 0 4px 18px 0 rgba(0,0,0,0.12);
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .links button {
+            margin: 10px 18px;
+            padding: 14px 32px;
+            font-size: 1.1em;
+            border-radius: 30px;
+            border: 2px solid #ffb347;
+            background: linear-gradient(90deg, #ffb347, #ffcc33);
+            color: #222;
+            font-weight: bold;
+            box-shadow: 0 2px 12px rgba(255, 179, 71, 0.15);
+            transition: 
+                background 0.3s,
+                color 0.3s,
+                transform 0.2s,
+                box-shadow 0.2s,
+                border-color 0.2s;
+            cursor: pointer;
+        }
+        .links button:hover, .links button:focus {
+            background: #fffbe6;
+            color: #ffb347;
+            border-color: #ffcc33;
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 0 18px 6px #ffe066, 0 4px 18px 0 rgba(0,0,0,0.12);
+        }
+        .links button a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Sliding effect for sections on scroll */
+        .slide-in {
+            opacity: 0;
+            transform: translateX(80px) scale(0.98);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .slide-in.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        /* Responsive for mobile */
+             @media (max-width: 600px) {
+             .main-content, section {
+                padding: 16px 4vw;
+                max-width: 98vw;
+            }
+
+            nav ul li {
+                flex-direction: row;
+                
+                display:flex;
+                justify-content: space-around;
+                
+            }
+            nav ul button {
+                padding: 10px 20px;
+                font-size: 0.8em;
+            }
+            
+            body{
+                margin-top: 70px;
+            }
+             }
+    
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 70%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Dots Tracker */
+.dots {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    display: inline-block;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: white;
+}
+.hidden {
+  display: none;
+}
+        #certificate {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        #certificate ul {
+            list-style: none;
+            padding: 0;
+        }
+        #certificate li {
+            margin-bottom: 10px;
+        }
+        #certificate img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        #certificatesbutton,#resumebutton {
+            background: linear-gradient(90deg, #7b5b9c, #7b5b9c);
+            color: #222;
+            border: none;
+            justify-content: center;
+            place-items: center;
+            border-radius: 30px;
+            padding: 12px 24px;
+            padding-left: 80px;
+            padding-right: 80px;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(255, 179, 71, 0.15);
+            transition: background 0.3s, color 0.3s, transform 0.25s cubic-bezier(.68,-0.55,.27,1.55);
+            perspective: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 20px;
+            font-size: medium;
+        }
+        #certificatesbutton:hover, #certificatesbutton:focus,#resumebutton:hover, #resumebutton:focus  {
+            background: #fffbe6;
+            color: #6d18c2;
+            transform: scale(1.08) rotateY(10deg);
+            box-shadow: 0 0 24px 6px #6d18c2, 0 4px 18px 0 rgba(0,0,0,0.12);
+        }
+    #certificatebuttondiv{
+        place-items: center;
+        display: grid;
+        margin-top: 20px;}
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><button><a href="#about">About</a></button></li>
+            <li><button><a href="#experience">Experiences</a></button></li>
+            <li><button><a href="#Skill">Skills</a></button></li>
+            <li><button><a href="#contact">Contact</a></button></li>
+        </ul>
+    </nav>
+    <div class="maincontent">
+        <div class="tittle">Get your things done in a mail...</div>
+        <section class="slide-in" id ="about">
+            <h1>About Me</h1>
+            <p>Hi I'm <strong>Surendar.L</strong>, <br>Doing B.Tech (clectronics and communication engineering) at Pondicherry University.<br> I specialize in creating innovative and intelligent digital solutions. My expertise spans a wide range of technologies, from full-stack web and app development to integrating AI into applications. I'm skilled in DevOps, automation, and UI/UX design, ensuring I can build robust, user-friendly products from concept to deployment. My passion for technology extends to the physical world with experience in IoT, Arduino, and Linux, allowing me to bridge the gap between software and hardware. With a keen eye for detail and a love for continuous learning, I'm dedicated to building impactful projects that solve real-world problems.
+                       <a href="Resume SURENDAR 2025.pdf" download="Resume SURENDAR 2025.pdf">
+  <button id="resumebutton">My resume</button>
+</a></p></section>
+ 
+        <section class="slide-in" id ="experience">
+            <h1>Experiences</h1>
+            <div class="slider-container">
+    <a href="experience pagr.html" class="experience page"><div class="slider">
+        <div class="slide"><img src="cybercell internship edited certificate.jpg" alt="Slide 1"></div>
+        <div class="slide"><img src="evolve iq.png" alt="Slide 2"></div>
+        <div class="slide"><img src="whatautomationscreenshoot.png" alt="Slide 3"></div>
+           
+           
+    </div></a>
+  
+
+    <!-- Navigation Arrows -->
+   <button class="experiencepage"> <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span></button>
+
+    <!-- Dots Tracker -->
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+        </section>
+        <section class="slide-in"  id ="Skill">
+            <h1>Skills</h1>
+            <ul class="skills-list">
+                
+                <li>Frontend</li>
+                <li>Baackend</li>
+                <li>Including AI in  webstie and Apps</li>
+                <li>Web Automation</li>
+                <li>Docker</li>
+                <li>Devops</li>
+                <li>Android/Ios app Development</li>
+                <li>Desktop Application Development</li>
+                <li>Linux</li>
+                <li>Arduino</li>
+                <li>IoT</li>
+                <li>UI/UX DEsigne</li>
+                <li>Video Editing</li>
+
+            </ul>
+           <div id="certificatebuttondiv"><button id="certificatesbutton">Certificates</button></div>
+            <section id="certificate" class="hidden">
+                
+                <ul>
+                    <div><img src="cybercell internship edited certificate.jpg" target="_blank">Government internship at Pondicherry cyber crime unite</img></div>
+                    <div><img src="front end mindluster.jpg" target="_blank">Front End Certificate </img></div>
+
+                </ul>
+            </section>      
+        </section>
+        <section class="slide-in links" id ="contact">
+            <h1>Get in touch</h1>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of something amazing!</p>
+            <button><a href="mailto:surendar7645321@gmail.com">Email</a></button>
+            <button><a href="https://www.linkedin.com/in/surendar-l-046bab343/">LinkedIn</a></button>
+        </section>
+    </div>
+    <script>
+        // Sliding effect for sections on scroll
+        function revealOnScroll() {
+            const slides = document.querySelectorAll('.slide-in');
+            const windowHeight = window.innerHeight;
+            slides.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight - 80) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+        const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const dots = document.querySelectorAll('.dot');
+
+let index = 0;
+
+function showSlide(i) {
+    index = i;
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+next.addEventListener('click', () => showSlide(index + 1));
+prev.addEventListener('click', () => showSlide(index - 1));
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+});
+
+// Auto Slide
+setInterval(() => {
+    showSlide(index + 1);
+}, 3000);
+
+
+
+const showButton = document.getElementById('certificatesbutton');
+const hiddenSection = document.getElementById('certificate');
+
+// Add the 'hidden' class initially
+hiddenSection.classList.add('hidden');
+
+showButton.addEventListener('click', function() {
+  // Toggle the 'hidden' class
+  hiddenSection.classList.toggle('hidden');
+});
+
+    </script>
+</body>
+</html>

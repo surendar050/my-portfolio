@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f2f5; /* Light gray background */
+  color: #333; /* Dark text for readability */
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* Space between project cards */
+}
+
+/* Card-like container for each project */
+.proj1, .proj2, .proj3 {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+/* Styling for images within the cards */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Slightly rounded corners for images */
+  margin-bottom: 1.5rem;
+  display: block; /* Ensure the image doesn't have extra space below it */
+}
+
+/* Title of each project */
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50; /* A dark blue for a professional look */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Duration and other project info */
+.duration, .description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling for the topic and skills sections */
+.topic {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* List of tools and skills */
+.tools, .skills {
+  list-style: none; /* Remove default bullet points */
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tools li, .skills li {
+  background-color: #e8f0fe; /* Light blue background for list items */
+  color: #34495e;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Add a hover effect for a bit of interactivity */
+.tools li:hover, .skills li:hover {
+  background-color: #d1e2ff;
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  .proj1, .proj2, .proj3 {
+    padding: 1.5rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+}
+
+  </style>
+  <div class="proj1">
+    <img src="cybercell internship edited certificate.jpg" alt="">
+    <p class ="title">Cybersecurity internship at Pondicherry Cyber Crime Unite</p>
+    <p class ="duration">Duration:06/06/2025 - 26/6/2025</p>
+    <ul class="topic">Skill learnt 
+and experience gained: 
+      
+        <div>Linux comands ( Networking comands, System Administration comands)</div>
+        <div>Tools learnt</div>
+        <ul class="tools">
+          <li>Wireshark</li>
+          <li>Burp Suite</li>
+          <li>Nmap</li>
+          <li>Metasploit</li>
+          <li>SQLMap</li>
+        </ul>
+        <div>Human resorce Handeling</div>
+        <div>Knowledge of cybercrime investigation techniques</div>
+        <div>Collaboration with law enforcement on cyber cases</div>
+      
+      </ul>
+    <p class="description">Description: 
+     This is my first internship and the hot point is it's a GOVERNMENT INTERNSHIP .The internship at Pondicherry Cyber Crime Unite provided me with hands-on experience in cybersecurity, focusing on practical skills and tools essential for cybercrime investigation. I learned to use various cybersecurity tools, gained knowledge of human resource handling, and collaborated with law enforcement on real-world cyber cases.
+  </div>
+  
+  <div class="proj2">
+
+    <img src="evolve iq.png" alt="">
+    <p class ="title">Android app -Educational Platform</p>
+    <p class ="duration">Experienced and results-driven Android developer with a passion for creating engaging and educational mobile applications. I have successfully designed, developed a comprehensive educational platform aimed at students and tuitors. My app EvlveIQ features interactive quizzes, uploadable video tutorials,persnalized learning paths.
+
+I am proficient in Kotlin and have a strong understanding of Android UI/UX principles, Material Design, and best practices for app performance and security. I am skilled in integrating APIs, managing databases, and implementing push notifications to enhance user engagement. I have a proven track record of delivering high-quality applications on time and within budget, with a focus on user satisfaction and continuous improvement.</p>
+    <p class="topic">Skills: 
+      <ul class="skills">
+        <li>Android Development (Kotlin)</li>
+        <li>UI/UX Design</li>
+        <li>API Integration</li>
+        <li>Database Management</li>
+        <li>Push Notifications</li>
+      </ul>
+    </p>
+    
+    
+    
+  </div>
+
+
+  <div class="proj3">
+    <img src="img3" alt="">
+    <p class ="title">WhatsApp Automation using python</p>
+    
+    <p class="topic">Skill learnt and experience gained:
+      <ul class="skills">
+        <li>Python Programming</li>
+        <li>Web Automation</li>
+        <li>API Integration</li>
+        <li>Data Handling</li>
+      </ul>
+    </p>
+    <p class="description">Description:
+      Developed a WhatsApp automation tool using Python, enabling automated messaging and interaction with users using libraryes like pywhatkit and pyautogui. This project enhanced my skills in Python programming, web automation, and API integration, allowing for efficient data handling and user engagement on the WhatsApp platform.    
+    </p>
+
+    
+  </div>
+</body>
+</html>
