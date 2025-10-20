@@ -3,171 +3,284 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Surendar | Experiences</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       -- ROOT VARIABLES & GLOBAL STYLES --
+    ======================================== */
+    :root {
+      --bg-dark: #0F0F1A;
+      --primary-dark: #1A1A2E;
+      --accent-blue: #00BFFF; /* DeepSkyBlue */
+      --accent-glow: rgba(0, 191, 255, 0.4);
+      --text-light: #E0E0E0;
+      --text-secondary: #a0a0c0;
+      --border-color: rgba(0, 191, 255, 0.2);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      margin: 0;
+      padding: 2rem;
+    }
+
+    /* ========================================
+       -- HEADER & NAVIGATION --
+    ======================================== */
+    .header {
+      width: 100%;
+      max-width: 840px;
+      margin: 0 auto 2rem auto;
+      text-align: left;
+    }
+
+    .back-link {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--accent-blue);
+      border: 2px solid var(--accent-blue);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .back-link:hover {
+      background-color: var(--accent-blue);
+      color: var(--bg-dark);
+    }
+
+    /* ========================================
+       -- PROJECTS CONTAINER & CARDS --
+    ======================================== */
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background-color: var(--primary-dark);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      max-width: 800px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    /* Staggered animation delay for each card */
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.4s; }
+
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 25px var(--accent-glow);
+    }
+
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+        .custom-button {
+            display: inline-block;
+            margin: 10px auto;
+            padding: 14px 32px;
+            font-size: 1em;
+            border-radius: 30px;
+            border: 2px solid rgb(74, 35, 35);
+            background: transparent;
+            color: rgb(195, 123, 123);
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .custom-button:hover, .custom-button:focus {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+    
+    /* ========================================
+       -- TYPOGRAPHY & CONTENT STYLES --
+    ======================================== */
+    .project-card h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card .duration {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-card .description, .project-card .experience-list {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .experience-list {
+        list-style-type: '✓  '; /* Custom bullet point */
+        padding-left: 20px;
+    }
+    .experience-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* ========================================
+       -- SKILL TAGS --
+    ======================================== */
+    .tags-container {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    .tags-container li {
+      background-color: var(--bg-dark);
+      color: var(--accent-blue);
+      border: 1px solid var(--accent-blue);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .tags-container li:hover {
+      background-color: var(--accent-blue);
+      color: var(--bg-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ========================================
+       -- ANIMATIONS & RESPONSIVE --
+    ======================================== */
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .project-card {
+        padding: 1.5rem;
+      }
+      .project-card h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <style>
-    body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f0f2f5; /* Light gray background */
-  color: #333; /* Dark text for readability */
-  margin: 0;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem; /* Space between project cards */
-}
 
-/* Card-like container for each project */
-.proj1, .proj2, .proj3 {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  max-width: 800px;
-  width: 100%;
-  box-sizing: border-box; /* Ensure padding is included in the width */
-}
+  <header class="header">
+    <a href="index.html" class="back-link">&larr; Back to Profile</a>
+  </header>
 
-/* Styling for images within the cards */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px; /* Slightly rounded corners for images */
-  margin-bottom: 1.5rem;
-  display: block; /* Ensure the image doesn't have extra space below it */
-}
+  <main class="projects-container">
 
-/* Title of each project */
-.title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #2c3e50; /* A dark blue for a professional look */
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-/* Duration and other project info */
-.duration, .description {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-/* Styling for the topic and skills sections */
-.topic {
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
-/* List of tools and skills */
-.tools, .skills {
-  list-style: none; /* Remove default bullet points */
-  padding-left: 0;
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.tools li, .skills li {
-  background-color: #e8f0fe; /* Light blue background for list items */
-  color: #34495e;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  display: inline-block;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-/* Add a hover effect for a bit of interactivity */
-.tools li:hover, .skills li:hover {
-  background-color: #d1e2ff;
-  transform: translateY(-2px);
-  transition: all 0.2s ease-in-out;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  body {
-    padding: 1rem;
-  }
-  .proj1, .proj2, .proj3 {
-    padding: 1.5rem;
-  }
-  .title {
-    font-size: 1.25rem;
-  }
-}
-
-  </style>
-  <div class="proj1">
-    <img src="cybercell internship edited certificate.jpg" alt="">
-    <p class ="title">Cybersecurity internship at Pondicherry Cyber Crime Unite</p>
-    <p class ="duration">Duration:06/06/2025 - 26/6/2025</p>
-    <ul class="topic">Skill learnt 
-and experience gained: 
-      
-        <div>Linux comands ( Networking comands, System Administration comands)</div>
-        <div>Tools learnt</div>
-        <ul class="tools">
-          <li>Wireshark</li>
-          <li>Burp Suite</li>
-          <li>Nmap</li>
-          <li>Metasploit</li>
-          <li>SQLMap</li>
-        </ul>
-        <div>Human resorce Handeling</div>
-        <div>Knowledge of cybercrime investigation techniques</div>
-        <div>Collaboration with law enforcement on cyber cases</div>
-      
+    <article class="project-card">
+      <img src="cybercell internship edited certificate.jpg" alt="Pondicherry Cyber Crime Unit Certificate">
+      <h2>Cybersecurity Internship at Pondicherry Cyber Crime Unit</h2>
+      <p class="duration">Duration: 06/06/2025 - 26/06/2025</p>
+      <p class="description">
+        This was a valuable government internship that provided hands-on experience in cybersecurity, focusing on practical skills and tools essential for cybercrime investigation. I collaborated with law enforcement on real-world cases, gaining insight into professional investigation techniques.
+      </p>
+      <h3>Skills & Tools Learned</h3>
+      <ul class="experience-list">
+        <li>Linux Networking & System Administration Commands</li>
+        <li>Human Resource Handling & Team Collaboration</li>
+        <li>Cybercrime Investigation Techniques</li>
       </ul>
-    <p class="description">Description: 
-     This is my first internship and the hot point is it's a GOVERNMENT INTERNSHIP .The internship at Pondicherry Cyber Crime Unite provided me with hands-on experience in cybersecurity, focusing on practical skills and tools essential for cybercrime investigation. I learned to use various cybersecurity tools, gained knowledge of human resource handling, and collaborated with law enforcement on real-world cyber cases.
-  </div>
-  
-  <div class="proj2">
-
-    <img src="evolve iq.png" alt="">
-    <p class ="title">Android app -Educational Platform</p>
-    <p class ="duration">Experienced and results-driven Android developer with a passion for creating engaging and educational mobile applications. I have successfully designed, developed a comprehensive educational platform aimed at students and tuitors. My app EvlveIQ features interactive quizzes, uploadable video tutorials,persnalized learning paths.
-
-I am proficient in Kotlin and have a strong understanding of Android UI/UX principles, Material Design, and best practices for app performance and security. I am skilled in integrating APIs, managing databases, and implementing push notifications to enhance user engagement. I have a proven track record of delivering high-quality applications on time and within budget, with a focus on user satisfaction and continuous improvement.</p>
-    <p class="topic">Skills: 
-      <ul class="skills">
-        <li>Android Development (Kotlin)</li>
+      <ul class="tags-container">
+        <li>Wireshark</li>
+        <li>Burp Suite</li>
+        <li>Nmap</li>
+        <li>Metasploit</li>
+        <li>SQLMap</li>
+      </ul>
+    </article>
+    
+    <article class="project-card">
+      <img src="Airsenseimage.png" alt="AirSense Dashboard Project Screenshot">
+      <h2>AirSense Dashboard 🌍[Crossplatform Development using React Native]</h2>
+      <a href="https://github.com/surendar050/AIRSENSE-app" target="_blank" rel="noopener" class="custom-button">Github repository</a>
+      <p class="description">
+ AirSense Dashboard is a simple yet powerful React Native mobile application designed for Android to visualize and query air quality data. The app reads pollution data from a local CSV file, presents it in an interactive line chart, and allows users to ask basic questions about the data through a simple chatbot.      </p>
+      <h3>Core Competencies</h3>
+      <ul class="tags-container">
+        <li>Crossplatform Development (React Native)</li>
         <li>UI/UX Design</li>
         <li>API Integration</li>
         <li>Database Management</li>
         <li>Push Notifications</li>
+       
       </ul>
-    </p>
-    
-    
-    
-  </div>
+    </article>
 
+    <article class="project-card">
+      <img src="whatautomationscreenshoot.png" alt="WhatsApp Automation Script Demo">
+      <h2>WhatsApp Automation using Python</h2>
+            <a href="https://github.com/surendar050/AIRSENSE-app" target="_blank" rel="noopener" class="custom-button">Github repository</a>
 
-  <div class="proj3">
-    <img src="img3" alt="">
-    <p class ="title">WhatsApp Automation using python</p>
-    
-    <p class="topic">Skill learnt and experience gained:
-      <ul class="skills">
+      <p class="description">
+        Developed a WhatsApp automation tool using Python libraries like PyWhatKit and PyAutoGUI. This project enabled automated messaging, scheduling, and interaction with users, enhancing my skills in web automation and API integration for efficient user engagement.
+      </p>
+      <h3>Skills Acquired</h3>
+      <ul class="tags-container">
         <li>Python Programming</li>
         <li>Web Automation</li>
+        <li>PyWhatKit</li>
+        <li>PyAutoGUI</li>
         <li>API Integration</li>
         <li>Data Handling</li>
       </ul>
-    </p>
-    <p class="description">Description:
-      Developed a WhatsApp automation tool using Python, enabling automated messaging and interaction with users using libraryes like pywhatkit and pyautogui. This project enhanced my skills in Python programming, web automation, and API integration, allowing for efficient data handling and user engagement on the WhatsApp platform.    
-    </p>
+    </article>
 
-    
-  </div>
+  </main>
 </body>
 </html>
